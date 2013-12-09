@@ -12,9 +12,9 @@
 
 int		main(int argc, char **argv )
 {
-	DIR		*dir;
+	ls_type		lst;
+	DIR			*dir;
 	struct dirent	*sd;
-
 	dir = opendir(".");
 	if (dir == NULL)
 	{
@@ -29,10 +29,15 @@ int		main(int argc, char **argv )
 				ft_putendl(sd->d_name);
 		}
 	}
-	else if (argv[1][0] == '-' && argv[1][1] == 'a')
+	else
+		ft_ls_type(&lst, argc, **argv);
+	return (1);
+}
+
+/* the part that does ls -a
+ * if (argv[1][0] == '-' && argv[1][1] == 'a')
 	{
 		while ((sd = readdir(dir)) != NULL)
 			ft_putendl(sd->d_name);
 	}
-	return (1);
-}
+	*/
