@@ -6,13 +6,14 @@
 #    By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/04 14:47:38 by wbeets            #+#    #+#              #
-#    Updated: 2013/12/09 14:09:32 by gpetrov          ###   ########.fr        #
+#    Updated: 2013/12/09 17:09:51 by wbeets           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: clean fclean re
 
-SRC = ft_ls.c
+SRC = ft_ls.c\
+	  ft_ls_type.c
 LIB = libft/libft.a
 NAME = ft_ls
 DEB = deb
@@ -27,7 +28,7 @@ all:
 	gcc $(FLAGS) $(SRC) -L. $(LIB) $(INC) -o $(NAME)
 
 debug:
-	cc -g $(SRC) -L. $(LIB) -o $(DEB)
+	cc -g $(SRC) $(INC) -L. $(LIB) -o $(DEB)
 	gdb $(DEB)
 
 relib:
