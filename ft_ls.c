@@ -46,6 +46,7 @@ char	**ft_display(struct dirent *sd, DIR *dir)
 		{
 			ft_putendl(sd->d_name);
 			count++;
+		}
 	}
 	closedir(dir);
 	tab = (char **)malloc(sizeof(char *) * (count + 1));
