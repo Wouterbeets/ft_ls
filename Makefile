@@ -6,20 +6,20 @@
 #    By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/04 14:47:38 by wbeets            #+#    #+#              #
-#    Updated: 2013/12/06 13:06:12 by wbeets           ###   ########.fr        #
+#    Updated: 2013/12/06 14:38:59 by wbeets           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: clean fclean re
 
 SRC = ft_ls.c
-LIB = libft/includes/libft.a
+LIB = libft.a
 NAME = ft_ls
 DEB = deb
 FLAGS =  -Wall -Werror -Wextra
 GITFILES = ft_ls.c\
 			Makefile\
-			libft\
+			libft.a\
 			head.h
 
 all:
