@@ -7,28 +7,29 @@
  *
  */
 
-void	ft_ls_type(*ls_type lst, DIR *dir, int argc, char **argv)
+#include "head.h"
+
+void	ft_ls_type(ls_type *lst, DIR *dir, int argc, char **argv)
 {
 	int		i;
 
-	i = 1;
-	j = 0;
+	i = 0;
 	while ( ++i <= argc)
 	{
 		if (argv[i][0] ==  '-')
 		{
-			if (ft_ls-what(argv[i], lst) == NULL)
+			if (ft_ls_what(argv[i], lst) == 0)
 				return;
 		}
 		else
-			if(ft_ls_filename(argv[i]) == NULL)
+			if(ft_ls_filename(argv[i], dir) == 0)
 				return;
 		i++;
 	}
 }
 
 
-int		ft_ls-what(char *str, ls_type *lst)
+int		ft_ls_what(char *str, ls_type *lst)
 {
 	int		i;
 
@@ -36,21 +37,21 @@ int		ft_ls-what(char *str, ls_type *lst)
 	while (str[i] != '\0')
 	{
 		if (str[i] == 'l')
-			*lst->l = 1;
+			lst->l = 1;
 		else if (str[i] == 'r')
-			*lst->r = 1;
+			lst->r = 1;
 		else if (str[i] == 'R')
-			*lst->R = 1;
+			lst->R = 1;
 		else if (str[i] == 'a')
-			*lst->a = 1;
+			lst->a = 1;
 		else if (str[i] == 't')
-			*lst->t = 1;
+			lst->t = 1;
 		else
 		{
-			*lst->error = 1;
-			return (NULL);
+			lst->error = 1;
+			return (0);
 		}
-		i++
+		i++;
 	}
 	return (1);
 }
