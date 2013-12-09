@@ -6,7 +6,7 @@
 #    By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/04 14:47:38 by wbeets            #+#    #+#              #
-#    Updated: 2013/12/09 13:59:24 by wbeets           ###   ########.fr        #
+#    Updated: 2013/12/09 14:07:52 by wbeets           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,3 +47,5 @@ fclean: clean
 
 re: fclean all 
 
+pasw:
+	git config --global credential.helper "cache --timeout=3600
