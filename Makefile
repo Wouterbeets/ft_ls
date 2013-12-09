@@ -6,7 +6,7 @@
 #    By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/04 14:47:38 by wbeets            #+#    #+#              #
-#    Updated: 2013/12/09 14:09:32 by gpetrov          ###   ########.fr        #
+#    Updated: 2013/12/09 16:42:28 by gpetrov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ all:
 	gcc $(FLAGS) $(SRC) -L. $(LIB) $(INC) -o $(NAME)
 
 debug:
-	cc -g $(SRC) -L. $(LIB) -o $(DEB)
+	cc -g $(SRC) $(INC) -L. $(LIB) -o $(DEB)
 	gdb $(DEB)
 
 relib:

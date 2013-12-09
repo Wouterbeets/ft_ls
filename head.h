@@ -24,7 +24,7 @@ typedef struct		lstype
 	char	**filenames;
 }					ls_type;
 
-void	ft_display(struct dirent *sd, DIR *dir);
-void	ft_a(struct dirent *sd, DIR *dir);
+char	**ft_display(struct dirent *sd, DIR *dir);
+// void	ft_a(struct dirent *sd, DIR *dir);
 
 #endif /* HEAD_H */
