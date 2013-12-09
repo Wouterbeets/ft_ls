@@ -25,7 +25,7 @@ int		main(int argc, char **argv )
 	if (argc == 1)
 		ft_display(sd, dir);
 	if (argv[1][0] == '-' && argv[1][1] == 'a')
-		ft_putstr("HELLO");
+		ft_a(sd, dir);
 	closedir(dir);
 	return (1);
 }
@@ -35,18 +35,13 @@ void	ft_display(struct dirent *sd, DIR *dir)
 	while ((sd = readdir(dir)) != NULL)
 	{
 		if (sd->d_name[0] != '.')
-		ft_putendl(sd->d_name);
+			ft_putendl(sd->d_name);		
 	}
 }
-/* the part that does ls -a
- * void	ft_a(dirent *sd, char **argv)
+
+void	ft_a(struct dirent *sd, DIR *dir)
 {
-if (argv[1][0] == '-' && argv[1][1] == 'a')
+	ft_putstr("HELLO");
 	while ((sd = readdir(dir)) != NULL)
-			ft_putendl(sd->d_name);
+		ft_putendl(sd->d_name);
 }
-
-	*/
-
-// else
-// 		ft_ls_type(&lst, argc, **argv);
