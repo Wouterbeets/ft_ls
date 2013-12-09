@@ -6,11 +6,13 @@
  *
  *
  */
+#ifndef HEAD_H
+# define HEAD_H
 
-#include "libft.h"
-#include <dirent.h>
-#include <stdlib.h>
-#include <sys/types.h>
+# include "libft.h"
+# include <dirent.h>
+# include <stdlib.h>
+# include <sys/types.h>
 
 typedef struct		lstype
 {
@@ -22,3 +24,4 @@ typedef struct		lstype
 	char	**filenames;
 }					ls_type;
 
+#endif /* HEAD_H *\
