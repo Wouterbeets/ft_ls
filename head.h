@@ -6,9 +6,12 @@
  *
  *
  */
+#ifndef HEAD_H
+# define HEAD_H
 
-#include "libft.h"
-#include <dirent.h>
-#include <stdlib.h>
-#include <sys/types.h>
+# include "libft.h"
+# include <dirent.h>
+# include <stdlib.h>
+# include <sys/types.h>
 
+#endif /* HEAD_H *\
