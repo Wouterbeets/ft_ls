@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   head.h                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/06 11:20:26 by wbeets            #+#    #+#             */
-/*   Updated: 2013/12/09 13:35:48 by wbeets           ###   ########.fr       */
+/*   Created: 2013/12/04 11:19:46 by wbeets            #+#    #+#             */
+/*   Updated: 2013/12/04 11:20:03 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-#include <dirent.h>
-#include <stdlib.h>
-#include <sys/types.h>
 
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+{
+	t_list	*lstnext;
+
+	while (lst)
+	{
+		lstnext = lst->next;
+		f(lst);
+		lst = lstnext;
+	}
+}

@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   head.h                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/06 11:20:26 by wbeets            #+#    #+#             */
-/*   Updated: 2013/12/09 13:35:48 by wbeets           ###   ########.fr       */
+/*   Created: 2013/11/20 16:15:00 by wbeets            #+#    #+#             */
+/*   Updated: 2013/12/06 18:42:36 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-#include <dirent.h>
-#include <stdlib.h>
-#include <sys/types.h>
 
+char	*ft_strdup(const char *s1)
+{
+	char	*dup;
+	int		i;
+
+	i = 0;
+	dup = ft_strnew(ft_strlen(s1));
+	while (s1[i] != '\0')
+	{
+		dup[i] = s1[i];
+		i++;
+	}
+	return (dup);
+}

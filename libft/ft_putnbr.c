@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   head.h                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/06 11:20:26 by wbeets            #+#    #+#             */
-/*   Updated: 2013/12/09 13:35:48 by wbeets           ###   ########.fr       */
+/*   Created: 2013/11/22 17:44:32 by wbeets            #+#    #+#             */
+/*   Updated: 2013/11/22 17:46:31 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-#include <dirent.h>
-#include <stdlib.h>
-#include <sys/types.h>
 
+void	ft_putnbr(int n)
+{
+	int		nbr_print;
+
+	if (n < 0)
+	{
+		ft_putchar('-');
+		if (n == -2147483648)
+			ft_putstr("2147483648");
+		else
+			ft_putnbr(-n);
+	}
+	else if (n >= 0 && n <= 9)
+		ft_putchar('0' + n);
+	else
+	{
+		nbr_print = n % 10;
+		ft_putnbr(n / 10);
+		ft_putchar('0' + nbr_print);
+	}
+}

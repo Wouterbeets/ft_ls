@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   head.h                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/06 11:20:26 by wbeets            #+#    #+#             */
-/*   Updated: 2013/12/09 13:35:48 by wbeets           ###   ########.fr       */
+/*   Created: 2013/11/19 17:39:03 by wbeets            #+#    #+#             */
+/*   Updated: 2013/12/04 11:22:01 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-#include <dirent.h>
-#include <stdlib.h>
-#include <sys/types.h>
 
+char	*ft_strncat(char *s1, const char *s2, size_t n)
+{
+	char	*p;
+
+	p = s1;
+	while (*p != '\0')
+	{
+		p++;
+	}
+	while (*s2 != '\0' && n != 0)
+	{
+		*p = *s2;
+		p++;
+		s2++;
+		n--;
+	}
+	*p = '\0';
+	return (s1);
+}

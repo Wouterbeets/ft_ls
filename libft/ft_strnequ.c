@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   head.h                                             :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/06 11:20:26 by wbeets            #+#    #+#             */
-/*   Updated: 2013/12/09 13:35:48 by wbeets           ###   ########.fr       */
+/*   Created: 2013/11/23 09:33:46 by wbeets            #+#    #+#             */
+/*   Updated: 2013/12/04 11:56:10 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-#include <dirent.h>
-#include <stdlib.h>
-#include <sys/types.h>
 
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
+{
+	size_t		i;
+
+	if (s1 && s2 && n)
+	{
+		i = 0;
+		while (s2[i] != '\0' && s1[i] != '\0' && i < n)
+		{
+			if (s1[i] != s2[i])
+				return (0);
+			i++;
+		}
+		return (1);
+	}
+	return (0);
+}

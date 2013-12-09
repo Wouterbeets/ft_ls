@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   head.h                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/12/06 11:20:26 by wbeets            #+#    #+#             */
-/*   Updated: 2013/12/09 13:35:48 by wbeets           ###   ########.fr       */
+/*   Created: 2013/11/22 14:32:09 by wbeets            #+#    #+#             */
+/*   Updated: 2013/11/22 14:59:43 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-#include <dirent.h>
-#include <stdlib.h>
-#include <sys/types.h>
 
+char	*ft_strchr(const char *s, int c)
+{
+	int		i;
+
+	i = 0;
+	while (s[i] != '\0' && s[i] != (char)c)
+	{
+		i++;
+	}
+	if (s[i] == (char)c)
+		return ((char*)&s[i]);
+	return (NULL);
+}
