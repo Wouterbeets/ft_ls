@@ -58,16 +58,14 @@ int		ft_ls_what(char *str, ls_type *lst)
 int		checkfile(char *str, ls_type *lst)
 {
 	int				ret;
-	struct stat		st;
-	name_stat		namestat;
 	t_list			*tmp;
 
-	if ((ret = stat(str, &st)) == 0)
+	if ((ret = stat(str, &lst->st)) == 0)
 	{
-		namestat.name = str;
-		namestat.st = st;
-		tmp = ft_lstnew(&namestat, sizeof(namestat));
-		if (S_ISDIR(namestat.st.st_mode))
+		lst->namestat.name = str;
+		lst->namestat.st = lst->st;
+		tmp = ft_lstnew(&lst->namestat, sizeof(lst->namestat));
+		if (S_ISDIR(lst->namestat.st.st_mode))
 			ft_lstadd(&lst->arg_dir, tmp);
 		else
 			ft_lstadd(&lst->arg_files, tmp);

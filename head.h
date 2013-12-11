@@ -13,6 +13,11 @@
 # include <dirent.h>
 # include <stdlib.h>
 # include <sys/stat.h>
+typedef struct		namestat
+{
+	char	*name;
+	struct stat	st;
+}					name_stat;
 
 typedef struct		lstype
 {
@@ -22,21 +27,11 @@ typedef struct		lstype
 	int		R;
 	int		t;
 	int		error;
+	struct stat st;
+	name_stat	namestat;
 	t_list	*arg_files;
 	t_list	*arg_dir;
 }				ls_type;
-
-typedef struct		namedir
-{
-	char	*name;
-	DIR		*dir;
-}					name_dir;
-
-typedef struct		namestat
-{
-	char	*name;
-	struct stat	st;
-}					name_stat;
 
 void	ft_display(struct dirent **sd, DIR **dir);
 void	ft_ls_type(ls_type *lst, int argc, char **argv);

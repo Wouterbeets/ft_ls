@@ -14,7 +14,6 @@ int		main(int argc, char **argv )
 	ls_type		lst;
 	t_list		*tmp;
 	name_stat	*namestat;
-	name_dir	*namedir;
 
 	lst.arg_files = ft_lstnew(0, 0);
 	lst.arg_dir = ft_lstnew(0, 0);
@@ -28,8 +27,8 @@ int		main(int argc, char **argv )
 	tmp = lst.arg_dir;
 	while (tmp->next != NULL)
 	{
-		namedir = (name_dir*)tmp->content;
-		ft_putendl(namedir->name);
+		namestat = (name_stat*)tmp->content;
+		ft_putendl(namestat->name);
 		tmp = tmp->next;
 	}
 	tmp = lst.arg_files;
