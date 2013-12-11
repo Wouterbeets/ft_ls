@@ -15,44 +15,30 @@ int		main(int argc, char **argv )
 	DIR			*dir;
 	struct dirent	*sd;
 	t_list		*tmp;
+	name_stat	*namestat;
+	name_dir	*namedir;
 
-	lst.files_to_disp = ft_lstnew(0, 0);
-	dir = opendir(".");
-	if (dir == NULL)
-	{
-		ft_putstr("cant open it you fool");
-		exit(1);
-	}
+	lst.arg_files = ft_lstnew(0, 0);
+	lst.arg_dir = ft_lstnew(0, 0);
 	if (argc == 1)
-		ft_save_lsa(sd, dir, &lst);
+		ft_display(&sd, &dir);
 	else
-		ft_save_lsa(sd, dir, &lst);
 		ft_ls_type(&lst, argc, argv);
-	if (lst.error == 1)
-		ft_putendl("usage: asldfaskldjfh");
-	argv = 0;
-	tmp = lst.files_to_disp;
+	tmp = lst.arg_dir;
+	namestat = namestat;
 	while (tmp->next != NULL)
 	{
-		ft_putendl((char*)tmp->content);
+		namedir = (name_dir*)tmp->content;
+		ft_putendl(namedir->name);
+		tmp = tmp->next;
+	}
+	tmp = lst.arg_files;
+	while (tmp->next != NULL)
+	{
+		namestat = (name_stat*)tmp->content;
+		ft_putendl(namestat->name);
+		ft_putnbr(namestat->st.st_size);
 		tmp = tmp->next;
 	}
 	return (1);
-}
-
-void	ft_save_lsa(struct dirent *sd, DIR *dir, ls_type *lst)
-{
-	int		count;
-	int		counter;
-
-	counter = 0;
-	count = 1;
-	while ((sd = readdir(dir)) != NULL)
-		count++;
-	closedir(dir);
-	lst->filenames = ft_memalloc(count + 2);
-	dir = opendir(".");
-	while ((sd = readdir(dir)) != NULL)
-		lst->filenames[counter++] = ft_strdup(sd->d_name);
-	closedir(dir);
 }

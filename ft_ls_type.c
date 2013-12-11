@@ -22,7 +22,7 @@ void	ft_ls_type(ls_type *lst, int argc, char **argv)
 				return;
 		}
 		else
-			if(ft_ls_filename(argv[i], lst) == 0)
+			if(checkfile(argv[i], lst) == 0)
 				return;
 	}
 }
@@ -55,6 +55,39 @@ int		ft_ls_what(char *str, ls_type *lst)
 	return (1);
 }
 
+
+int		checkfile(char *str, ls_type *lst)
+{
+	DIR				*dir;
+	int				ret;
+	struct stat		st;
+	name_dir		namedir;
+	name_stat		namestat;
+	t_list			*tmp;
+
+	if ((dir = opendir(str)))
+	{
+		namedir.name = str;
+		namedir.dir = dir;
+		tmp = ft_lstnew(&namedir, sizeof(namedir));
+		ft_lstadd(&lst->arg_dir, tmp);
+		closedir(dir);
+	}
+	else if ((ret = stat(str, &st)) == 0)
+	{
+		namestat.name = str;
+		namestat.st = st;
+		tmp = ft_lstnew(&namestat, sizeof(namestat));
+		ft_lstadd(&lst->arg_files, tmp);
+	}
+	else
+		ft_putendl("error not a file");
+	return (1);
+}
+
+
+
+/*
 int		ft_ls_filename(char *str, ls_type *lst)
 {
 	int		i;
@@ -74,4 +107,4 @@ int		ft_ls_filename(char *str, ls_type *lst)
 	if (ret != 0)
 		ft_putendl("this is bullshit");
 	return (1);
-}
+}*/
