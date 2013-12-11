@@ -6,7 +6,7 @@
 /*   By: wbeets <wbeets@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 11:01:30 by wbeets            #+#    #+#             */
-/*   Updated: 2013/12/06 11:04:59 by wbeets           ###   ########.fr       */
+/*   Updated: 2013/12/10 17:50:46 by wbeets           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef __LIBFT_H__
@@ -87,4 +87,4 @@ int		ft_isupper(int c);
 int		get_next_line(int const fd, char **line);
 int		readbuff(char **line);
 
-#endif
+#endif /* __LIBFT_H__ */

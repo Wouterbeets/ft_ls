@@ -1,7 +1,8 @@
 .PHONY: clean fclean re
 
 SRC = ft_ls.c\
-	  ft_ls_type.c
+	  ft_ls_type.c\
+	  ft_save_lsa.c
 LIB = libft/libft.a
 NAME = ft_ls
 DEB = deb
@@ -14,6 +15,10 @@ INC = -I libft/includes/
 
 all:
 	gcc $(FLAGS) $(SRC) -L. $(LIB) $(INC) -o $(NAME)
+
+stat:
+	cc -g $(SRC) $(INC) -L. $(LIB) -o $(DEB)
+	gdb $(DEB)
 
 debug:
 	cc -g $(SRC) $(INC) -L. $(LIB) -o $(DEB)
