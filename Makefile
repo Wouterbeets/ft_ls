@@ -10,14 +10,17 @@ FLAGS =  -Wall -Werror -Wextra
 GITFILES = ft_ls.c\
 			Makefile\
 			libft.a\
-			head.h
+			head.h\
+			ft_save_lsa.c\
+			ft_ls_type.c
+
 INC = -I libft/includes/
 
 all:
 	gcc $(FLAGS) $(SRC) -L. $(LIB) $(INC) -o $(NAME)
 
 stat:
-	cc -g $(SRC) $(INC) -L. $(LIB) -o $(DEB)
+	gcc -g $(FLAGS) $(SRC) $(INC) -L. $(LIB) -o $(DEB)
 	gdb $(DEB)
 
 debug:

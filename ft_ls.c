@@ -12,8 +12,6 @@
 int		main(int argc, char **argv )
 {
 	ls_type		lst;
-	DIR			*dir;
-	struct dirent	*sd;
 	t_list		*tmp;
 	name_stat	*namestat;
 	name_dir	*namedir;
@@ -21,11 +19,13 @@ int		main(int argc, char **argv )
 	lst.arg_files = ft_lstnew(0, 0);
 	lst.arg_dir = ft_lstnew(0, 0);
 	if (argc == 1)
-		ft_display(&sd, &dir);
+		argv = 0;
+//		ft_display(&sd, &dir);
 	else
 		ft_ls_type(&lst, argc, argv);
+	if (lst.arg_dir->content == NULL && lst.arg_files->content == NULL)
+		readdirectory(&lst, ".");
 	tmp = lst.arg_dir;
-	namestat = namestat;
 	while (tmp->next != NULL)
 	{
 		namedir = (name_dir*)tmp->content;
@@ -37,8 +37,26 @@ int		main(int argc, char **argv )
 	{
 		namestat = (name_stat*)tmp->content;
 		ft_putendl(namestat->name);
-		ft_putnbr(namestat->st.st_size);
 		tmp = tmp->next;
 	}
 	return (1);
+}
+
+void	readdirectory(ls_type *lst, char *str)
+{
+	DIR	*dir;
+	struct dirent	*sd;
+
+	if((dir = opendir(str)) == NULL)
+		ft_putstr("error");
+	while ((sd = readdir(dir)) != 0)
+	{
+		if (lst->a != 1) 
+		{
+			if (sd->d_name[0] != '.')
+				checkfile(sd->d_name, lst);
+		}
+		else
+			checkfile(sd->d_name, lst);
+	}
 }

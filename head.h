@@ -44,6 +44,6 @@ int		ft_ls_what(char *str, ls_type *lst);
 void	ft_save_lsa(struct dirent *sd, DIR *dir, ls_type *lst);
 int		ft_ls_filename(char *str, ls_type *lst);
 int		checkfile(char *str, ls_type *lst);
-
+void	readdirectory(ls_type *lst, char *str);
 
 #endif /* HEAD_H */

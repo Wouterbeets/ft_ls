@@ -22,8 +22,7 @@ void	ft_ls_type(ls_type *lst, int argc, char **argv)
 				return;
 		}
 		else
-			if(checkfile(argv[i], lst) == 0)
-				return;
+			checkfile(argv[i], lst);
 	}
 }
 
@@ -58,27 +57,20 @@ int		ft_ls_what(char *str, ls_type *lst)
 
 int		checkfile(char *str, ls_type *lst)
 {
-	DIR				*dir;
 	int				ret;
 	struct stat		st;
-	name_dir		namedir;
 	name_stat		namestat;
 	t_list			*tmp;
 
-	if ((dir = opendir(str)))
-	{
-		namedir.name = str;
-		namedir.dir = dir;
-		tmp = ft_lstnew(&namedir, sizeof(namedir));
-		ft_lstadd(&lst->arg_dir, tmp);
-		closedir(dir);
-	}
-	else if ((ret = stat(str, &st)) == 0)
+	if ((ret = stat(str, &st)) == 0)
 	{
 		namestat.name = str;
 		namestat.st = st;
 		tmp = ft_lstnew(&namestat, sizeof(namestat));
-		ft_lstadd(&lst->arg_files, tmp);
+		if (S_ISDIR(namestat.st.st_mode))
+			ft_lstadd(&lst->arg_dir, tmp);
+		else
+			ft_lstadd(&lst->arg_files, tmp);
 	}
 	else
 		ft_putendl("error not a file");
